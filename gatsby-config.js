@@ -11,7 +11,29 @@ module.exports = {
     {
       resolve: `gatsby-mdx`,
       options: {
+        extensions: ['.mdx', '.md'],
         defaultLayouts: { default: path.resolve('./src/components/layout.js') },
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 590,
+            },
+          },
+          {
+            resolve: `gatsby-remark-responsive-iframe`,
+            options: {
+              wrapperStyle: `margin-bottom: 1.0725rem`,
+            },
+          },
+          {
+            resolve: `gatsby-remark-copy-linked-files`,
+          },
+
+          {
+            resolve: `gatsby-remark-smartypants`,
+          },
+        ],
       },
     },
     'gatsby-plugin-react-helmet',
